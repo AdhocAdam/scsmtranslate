@@ -1,0 +1,16 @@
+﻿<wpfwiz:WizardRegularPageBase x:Class="SettingsUI.AzureSettingsForm" 
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:wpfwiz="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfWizardFramework;assembly=Microsoft.EnterpriseManagement.UI.WpfWizardFramework"
+            xmlns:smcontrols="clr-namespace:Microsoft.EnterpriseManagement.UI.WpfControls;assembly=Microsoft.EnterpriseManagement.UI.SmControls"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:Custom="http://schemas.microsoft.com/SystemCenter/Common/UI/Wpf" mc:Ignorable="d" Width="551" Height="442">
+    <Grid>
+        <TextBlock Text="Azure Translate API Key:" HorizontalAlignment="Left" TextAlignment="Right" Margin="10,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="253,112,0,0" TextWrapping="Wrap" Text="{Binding AzureCognitiveServicesTranslateAPIKey, Mode=TwoWay}" IsEnabled="{Binding ElementName=chkEnableAzureTranslate, Path=IsChecked}" VerticalAlignment="Top" Width="288"/>
+        <CheckBox Name="chkEnableAzureTranslate" Content="Enable Azure Translate" HorizontalAlignment="Left" Margin="253,92,0,0" VerticalAlignment="Top" Width="153" IsChecked="{Binding Path=IsAzureTranslateEnabled, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="531" Height="267"><Run Text="When enabled, U"/><Run Text="sers synced from Active Directory into SCSM must have a defined Locale on their User record as seen in the SCSM console. Assuming they do, Comments left will be submitted to Azure to first Detect the language of the comment. If the Detected Language is different then the Locale of the user, a second request to Azure is submitted to Translate the comment. This Translated Comment is then added to the Action Log of the Work Item and a notification sent out on the Translated Comment."/><LineBreak/><Run/><LineBreak/><Run Text="- Users without a Locale, receive the original notification, and there is no Azure consumption."/><LineBreak/><Run Text="- Users with matching Locale/Comment language only consume Azure Language Detection"/><LineBreak/><Run Text="- Users with differing Locale/Comment language consume both Language Detection and Translation"/><LineBreak/><Run Text="- When calling Language Detection, only the first sentence (e.g. ending in a &quot;.&quot;) of the comment is submitted so as to save on Azure spend."/><LineBreak/><Run Text="-New Action Log entries that are created are Entered By &quot;Azure Translate&quot; in the event you wish to report or update Notification Templates."/><LineBreak/><Run/></TextBlock>
+        <Label Content="Azure Translator" Margin="10,10,30,0" VerticalAlignment="Top" Height="48" FontWeight="Bold" FontSize="26"/>
+        <TextBlock Margin="10,51,30,0" VerticalAlignment="Top" Height="41" FontWeight="Light" FontSize="14" TextWrapping="Wrap" Text="Integrate with Azure's Translator API so Analysts and Users of different locales can work with one another." />
+    </Grid>
+</wpfwiz:WizardRegularPageBase>
