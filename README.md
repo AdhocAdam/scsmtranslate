@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="/screenshots/scsmtranslateicon.png">
+</p>
+
+
 # SCSM - Advanced Action Log Notifier
 This management pack for SCSM 2016+ provides Action Log notifications on Incidents and Service Requests featuring integration into Azure Translation services.
 
